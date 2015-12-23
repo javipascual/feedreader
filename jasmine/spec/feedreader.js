@@ -61,13 +61,17 @@ $(function() {
          var feedContent;
 
          beforeEach(function(done) {
-                        feedContent = $('.feed').text();
-                        loadFeed(1, done);
+                        loadFeed(1, function() {
+                            feedContent0 = $('.feed').text();
+                            done();
+                        });
          });
 
          it('when a new feed is loaded the content changes', function(done) {
-             expect(feedContent).not.toEqual($('.feed').text());
-             done();
+             loadFeed(2, function() {
+                 expect(feedContent).not.toEqual($('.feed').text());
+                 done();
+             });
          });
     });
 }());
