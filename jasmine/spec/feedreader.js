@@ -62,7 +62,7 @@ $(function() {
 
          beforeEach(function(done) {
                         loadFeed(1, function() {
-                            feedContent0 = $('.feed').text();
+                            feedContent = $('.feed').text();
                             done();
                         });
          });
